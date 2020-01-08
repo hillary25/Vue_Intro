@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- This is our Vue container / template (like -> {{{ body }}} which we used before) -->
+    <main id="app">
+        <h1>{{ message }}</h1>
+
+        <ul>
+            <!-- The line "prof in collection" - prof word can change but needs to be the same throughout eg. item, item.name, item.role -->
+            <li v-for="prof in collection"> 
+                <p @click="logClicked">{{ prof.name }}, {{ prof.role }}</p>
+            </li>
+        </ul>
+    </main>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
