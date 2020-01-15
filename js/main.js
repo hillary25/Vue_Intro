@@ -1,28 +1,43 @@
-import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js'
+// To do => use a key to track the current video, or just pass the video in as a ref to the function and grab its source
 
-// Set up a viewmodel and use the Vue framework
-// NO CODE can go above the import statement that is above
+var vm = new Vue({
+  el: "#app",
 
-const my_vm = (() => {
-    // Variables can go here, or define components...whatever!
-   
-    // Define keys and values below
+  data: {
 
-    let vue_VM = new Vue({
-        data: {
-            message: "Hello from Vue!",
+    // Mock up the user here - this will eventually come from the database UMS (user management system)
+    user: {
+      isAdmin: false,
+      avatar: null, 
+      // Make avatar "thor.png" above if you want to see avatar picture
+      isLoggedIn: true
+    },
+    // Object properties need to be seperated by a comma, like above
 
-            collection: [
-                {name: "Joe", role: "Prof"},
-                {name: "John", role: "Prof"},
-                {name: "Jarrod", role: "Prof"}
-            ]
-        },
 
-        methods: {
-            logClicked() {
-                console.log('clicked on an element!');
-            }
-        }
-    }).$mount("#app"); // Look for element with ID of app, and connect and mount to it (watch for everything in the element and apply it)
-})();
+    // This data should come from a database, but we'll just mock it up for now
+    videodata: [
+      { name: "Star Wars The Force Awakens", thumb: "forceawakens.jpg", vidsource: "forceawakens.mp4", description: "yet another star wars movie" },
+      { name: "Stranger Things", thumb: "strangerthings.jpg", vidsource: "strangerthings.mp4", description: "don't get lost in the upside down" },
+      { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
+    ],
+
+    showDetails: false
+  },
+
+  methods: {
+    setUserPrefs() {
+      // This is the preferences control, hit the api when ready (or use a component)
+      console.log('set user prefs here');
+    },
+
+    userLogin() {
+      // Call the login reoute, and / or load the login component
+      console.log('do login / logout on click');
+
+      // This is a ternary statement -> shorthand for if / else
+      // The expression evaluates to true or false - if it's true, set the value equal to the left of the colon. If it's false, set the value equal to the right.
+      this.user.isLoggedIn = (this.user.isLoggedIn) ? false : true;
+    }
+  }
+});
