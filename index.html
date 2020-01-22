@@ -17,26 +17,26 @@
       <nav>
         <h3 class="app-title">My Awesome Video App</h3>
         <ul>
-          <!-- avatar / user icon-->
-          <!-- if the user has an avatar, show it -->
-          <li v-if="user.avatar">
+          <!-- Avatar / user icon-->
+          <!-- If the user has an avatar, show it -->
+          <li v-if="user.settings.avatar">
             <img :src="'images/' + user.avatar" alt="user avatar" class="u-avatar">
           </li>
 
-          <!-- else show this -->
+          <!-- Else show this -->
           <li v-else>
             <i class="fas fa-user"></i>
           </li>
-          <!-- end avatar -->
+          <!-- End avatar -->
 
-          <!-- settings icon / functionality -->
-          <!-- if our user object has admin rights, then show this -->
-          <li v-if="user.isAdmin">
+          <!-- Settings icon / functionality -->
+          <!-- If our user object has admin rights, then show this -->
+          <li v-if="user.settings.isadmin">
             <i v-on:click="setUserPrefs" class="fas fa-cog" role="button"></i>
           </li>
-          <!-- end user settings -->
+          <!-- End user settings -->
 
-          <!-- log in / log out -->
+          <!-- Log in / log out -->
           <li>
             <i @click="userLogin" class="fas fa-power-off u-login" role="button" :class="{'logged-in' : user.isLoggedIn}"></i>
           </li>
@@ -72,7 +72,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
-  <script defer src="js/main.js"></script> <!--defer tells js to wait to load this one until the other one is done-->
+  <script defer src="js/main.js"></script> <!-- Defer tells js to wait to load this one until the other one is done-->
 </body>
 
 </html>
