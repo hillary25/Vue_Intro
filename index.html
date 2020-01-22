@@ -57,11 +57,8 @@
     </p>
 
     <section class="hidden-movies" :class="{'show-movie' : showDetails}">
-      <h3 class="movie-title">{{ vidtitle }}</h3>
-      <video :src="'video/' + vidsource" controls autoplay></video>
-      <div class="movie-details">
-        <p>{{ videodescription }}</p>
-      </div>
+      <!-- Inside video player component, put movie data -->
+      <player v-bind:movie="movie" />
     </section>
 
     <div class="up-arrow"><span>^</span></div>
